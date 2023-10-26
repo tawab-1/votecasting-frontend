@@ -29,7 +29,7 @@ function CoreTeamForm({setLoginForm}) {
       password: values.password,
     };
     const response = await addInfo(payload);
-    const userData = response.data.user;
+    const userData = response?.data?.user;
     if (response.status === 200 && userData.role === 'admin') {
       auth.login(userData.username);
       navigate(constRoute.coreTeam, {replace: true});

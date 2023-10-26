@@ -20,6 +20,7 @@ const notification = {
         <img
           src={error}
           style={{width: '86px', marginLeft: '-21px', marginTop: '0px'}}
+          alt='Error Message'
         />
       ),
     });

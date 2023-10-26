@@ -3,51 +3,51 @@ import {Button} from 'antd';
 import styled from 'styled-components';
 
 const CustomButton = (props) => {
-    const {
-        className,
-        block,
-        danger,
-        disabled,
-        ghost,
-        href,
-        htmlType,
-        form,
-        icon,
-        loading,
-        shape,
-        size,
-        target,
-        type,
-        onClick,
-        color,
-        backgroundColor,
-        title,
-    } = props;
-    return (
-        <>
-            <StyledCustomButton
-                className={className}
-                block={block}
-                danger={danger}
-                disabled={disabled}
-                ghost={ghost}
-                href={href}
-                htmlType={htmlType}
-                form={form}
-                icon={icon}
-                loading={loading}
-                shape={shape}
-                size={size}
-                target={target}
-                type={type}
-                onClick={onClick}
-                color={color}
-                backgroundcolor={backgroundColor}
-            >
-                {title}
-            </StyledCustomButton>
-        </>
-    );
+  const {
+    className,
+    block,
+    danger,
+    disabled,
+    ghost,
+    href,
+    htmlType,
+    form,
+    icon,
+    loading,
+    shape,
+    size,
+    target,
+    type,
+    onClick,
+    color,
+    backgroundColor,
+    title,
+  } = props;
+  return (
+    <>
+      <StyledCustomButton
+        className={className}
+        block={block}
+        danger={danger}
+        disabled={disabled}
+        ghost={ghost}
+        href={href}
+        htmlType={htmlType}
+        form={form}
+        icon={icon}
+        loading={loading}
+        shape={shape}
+        size={size}
+        target={target}
+        type={type}
+        onClick={onClick}
+        color={color}
+        backgroundcolor={backgroundColor}
+      >
+        {title}
+      </StyledCustomButton>
+    </>
+  );
 };
 
 export default CustomButton;
@@ -60,26 +60,26 @@ const StyledCustomButton = styled(Button)`
   border: 1px solid transparent;
   justify-content: center;
   background-color: ${(props) =>
-          props.backgroundcolor ? props.backgroundcolor : ' #1f5a32'} !important;
+    props.backgroundcolor ? props.backgroundcolor : ' #1f5a32'} !important;
   border-radius: 25px;
   min-height: 40px;
 
   :hover {
     border-color: white !important;
     background-color: ${(props) =>
-            props.backgroundcolor === '#1f5a32'
-                    ? 'white'
-                    : props.backgroundcolor === 'white' || '#ffffff' || '#fff'
-                            ? '#1f5a32'
-                            : 'black'} !important;
+      props.backgroundcolor === '#1f5a32'
+        ? 'white'
+        : props.backgroundcolor === 'white' || '#ffffff' || '#fff'
+        ? '#1f5a32'
+        : 'black'} !important;
 
     span {
       color: ${(props) =>
-              props.color === '#1f5a32'
-                      ? 'white'
-                      : props.color === 'white' || '#fff' || '#ffffff'
-                              ? '#1f5a32'
-                              : ''};
+        props.color === '#1f5a32'
+          ? 'white'
+          : props.color === 'white' || '#fff' || '#ffffff'
+          ? '#1f5a32'
+          : ''};
     }
   }
 

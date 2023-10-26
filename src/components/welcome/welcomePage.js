@@ -12,88 +12,7 @@ import OnlineUserForm from '../loginForms/onlineUserForm';
 
 const WelcomePage = () => {
   const [loginForm, setLoginForm] = useState(null);
-  const [first, setFirst] = useState();
-  const [second, setSecond] = useState();
-  const getDataFirst = () => {
-    var randomChallengeBuffer = new Uint8Array(32);
-    window.crypto.getRandomValues(randomChallengeBuffer);
 
-    var base64id = 'MIIBkzCCATigAwIBAjCCAZMwggE4oAMCAQIwggGTMII=';
-    var idBuffer = Uint8Array.from(window.atob(base64id), (c) =>
-      c.charCodeAt(0)
-    );
-
-    var publicKey = {
-      challenge: randomChallengeBuffer,
-
-      rp: {name: 'FIDO Example Corporation'},
-
-      user: {
-        id: idBuffer,
-        name: 'alice@example.com',
-        displayName: 'Alice von Wunderland',
-      },
-
-      attestation: 'direct',
-
-      pubKeyCredParams: [
-        {type: 'public-key', alg: -7}, // ES256
-        {type: 'public-key', alg: -257}, // RS256
-      ],
-    };
-
-    navigator.credentials
-      .create({publicKey})
-      .then((newCredentialInfo) => {
-        console.log('SUCCESS', newCredentialInfo);
-        console.log('rawId:', newCredentialInfo.rawId);
-        setFirst(newCredentialInfo.rawId);
-      })
-      .catch((error) => {
-        console.log('FAIL', error);
-      });
-  };
-  const getDataSecond = () => {
-    var randomChallengeBuffer = new Uint8Array(32);
-    window.crypto.getRandomValues(randomChallengeBuffer);
-
-    var base64id = 'MIIBkzCCATigAwIBAjCCAZMwggE4oAMCAQIwggGTMII=';
-    var idBuffer = Uint8Array.from(window.atob(base64id), (c) =>
-      c.charCodeAt(0)
-    );
-
-    var publicKey = {
-      challenge: randomChallengeBuffer,
-
-      rp: {name: 'FIDO Example Corporation'},
-
-      user: {
-        id: idBuffer,
-        name: 'alice@example.com',
-        displayName: 'Alice von Wunderland',
-      },
-
-      attestation: 'direct',
-
-      pubKeyCredParams: [
-        {type: 'public-key', alg: -7}, // ES256
-        {type: 'public-key', alg: -257}, // RS256
-      ],
-    };
-
-    navigator.credentials
-      .create({publicKey})
-      .then((newCredentialInfo) => {
-        console.log('SUCCESS', newCredentialInfo);
-        console.log('rawId:', newCredentialInfo.rawId);
-        setSecond(newCredentialInfo.rawId);
-      })
-      .catch((error) => {
-        console.log('FAIL', error);
-      });
-
-    console.log(coJSON.stringify(first) === JSON.stringify(second));
-  };
 
   return (
     <>
@@ -168,10 +87,6 @@ const WelcomePage = () => {
           </SignInFormWrapper>
         </LoginWrapper>
       )}
-      <div>
-        <button onClick={getDataFirst}>get first</button>
-        <button onClick={getDataSecond}>get second</button>
-      </div>
     </>
   );
 };

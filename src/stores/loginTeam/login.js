@@ -41,7 +41,7 @@ export const signinInfo = types
         return res;
       } catch (error) {
         notification.error(error ? 'Invalid Email or Password' : '');
-        self.errorMessage = error.response.data.message;
+        self.errorMessage = error.message;
       } finally {
         self.loading = false;
       }
@@ -56,6 +56,7 @@ export const signinInfo = types
           areaCode: userData.areaCode,
           role: userData.role,
         });
+        return res;
       } catch (error) {
         notification.error(error ? 'User not added' : '');
         // self.errorMessage = error.response.data.message;
