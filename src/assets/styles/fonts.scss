@@ -1,0 +1,38 @@
+// all fonts
+
+$font-size-12: 12px;
+$font-size-13: 13px;
+$font-size-14: 14px;
+$font-size-16: 16px;
+$font-size-18: 18px;
+$font-size-20: 20px;
+$font-size-24: 24px;
+$font-size-30: 30px;
+$font-size-38: 38px;
+$font-size-46: 46px;
+
+@font-face {
+    font-family: 'Outfit';
+    src: url('../fonts/Outfit-SemiBold.ttf');
+    font-weight: 600;
+    
+}
+
+@font-face {
+    font-family: 'poppins';
+    src: url('../fonts/Poppins-Regular.ttf');
+    font-weight: 400;
+}
+@font-face {
+    font-family: 'poppins';
+    src: url('../fonts/Poppins-SemiBold.ttf');
+    font-weight: 600;
+    word-spacing: 1px;
+
+}
+@font-face {
+    font-family: 'poppins';
+    src: url('../fonts/Poppins-Bold.ttf');
+    font-weight: 700;
+    
+}

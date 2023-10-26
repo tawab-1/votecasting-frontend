@@ -1,24 +1,55 @@
-import logo from './logo.svg';
+import {Route, Routes} from 'react-router-dom';
 import './App.css';
+import WelcomePage from './components/welcome/welcomePage';
+import CoreDashboard from './components/coreTeamDashboard';
+import {constRoute} from './utils/route';
+import Dashboard from './components/coreTeamDashboard/dashboard';
+import PollingStatistics from './components/coreTeamDashboard/pollingStatPage';
+import Users from './components/coreTeamDashboard/usersPage';
+import {AuthProvider} from './utils/auth/auth';
+import {RequireAuth} from './components/RequiredAuth/RequireAuth';
+import PollingTeamDashboard from './components/pollingTeamDashboard';
+import {OnlineUserDashboard} from './components/onlineUserDashboard';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <AuthProvider>
+      <Routes>
+        <Route path={constRoute.home} element={<WelcomePage />} />
+        <Route
+          path={constRoute.coreTeam}
+          element={
+            <RequireAuth>
+              <CoreDashboard />
+            </RequireAuth>
+          }
         >
-          Learn React
-        </a>
-      </header>
-    </div>
+          <Route index element={<Dashboard />} />
+          <Route path={constRoute.dashboard} element={<Dashboard />} />
+          <Route path={constRoute.users} element={<Users />} />
+          <Route
+            path={constRoute.pollingStatistics}
+            element={<PollingStatistics />}
+          />
+        </Route>
+        <Route
+          path={constRoute.pollingTeamDashboard}
+          element={
+            <RequireAuth>
+              <PollingTeamDashboard />
+            </RequireAuth>
+          }
+        />
+        <Route
+          path={constRoute.onlineUserDashboard}
+          element={
+            <RequireAuth>
+              <OnlineUserDashboard />
+            </RequireAuth>
+          }
+        />
+      </Routes>
+    </AuthProvider>
   );
 }
 

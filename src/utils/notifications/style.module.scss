@@ -1,0 +1,28 @@
+
+  :global(.ant-notification) {
+    z-index: 1070 !important;
+    :global(.ant-notification-notice){
+      padding: 16px 13px;
+      :global(.ant-notification-notice-content) {
+        color: #525353;
+        font-size: 14px;
+        line-height: 30px;
+        font-weight: normal;
+        letter-spacing: 1px;
+        :global(.ant-notification-notice-with-icon){
+          display: flex;
+          align-items: center;
+          :global(.ant-notification-notice-message){
+            display: none;
+          }
+          :global(.ant-notification-notice-description){
+            margin-inline-start: 70px;
+          }
+        }
+      }
+      :global(.ant-notification-notice-close){
+        display: none;
+      }
+    }
+  }
+  
