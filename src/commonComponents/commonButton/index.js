@@ -64,7 +64,7 @@ const StyledCustomButton = styled(Button)`
   border-radius: 25px;
   min-height: 40px;
 
-  :hover {
+  &:hover {
     border-color: white !important;
     background-color: ${(props) =>
       props.backgroundcolor === '#1f5a32'
