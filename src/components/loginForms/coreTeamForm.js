@@ -20,9 +20,9 @@ function CoreTeamForm({setLoginForm}) {
   const {
     signinInfo: {addInfo},
   } = useStore(null);
-
   const navigate = useNavigate();
   const auth = useAuth();
+
   const onLogin = async (values) => {
     const payload = {
       email: values.email,

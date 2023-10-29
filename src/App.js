@@ -10,6 +10,8 @@ import {AuthProvider} from './utils/auth/auth';
 import {RequireAuth} from './components/RequiredAuth/RequireAuth';
 import PollingTeamDashboard from './components/pollingTeamDashboard';
 import {OnlineUserDashboard} from './components/onlineUserDashboard';
+import { PollingDashboard } from './components/pollingTeamDashboard/dashboard';
+import { StartPollingPage } from './components/pollingTeamDashboard/startPolling';
 
 function App() {
   return (
@@ -39,7 +41,10 @@ function App() {
               <PollingTeamDashboard />
             </RequireAuth>
           }
-        />
+        >
+          <Route index element={<PollingDashboard/>} />
+          <Route path={constRoute.startPollingPage} element={<StartPollingPage/>} />
+        </Route>
         <Route
           path={constRoute.onlineUserDashboard}
           element={

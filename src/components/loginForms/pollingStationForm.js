@@ -17,7 +17,7 @@ function PollingTeamForm({setLoginForm}) {
   const navigate = useNavigate();
   const [form] = Form.useForm();
   const auth = useAuth();
-  const onLogin = async (values) => {
+  const onLogin = async () => {
     auth.login('user');
     navigate(constRoute.pollingTeamDashboard, {replace: true});
   };

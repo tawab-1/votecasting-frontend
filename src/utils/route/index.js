@@ -6,5 +6,6 @@ export const constRoute = {
     pollingStatistics: 'pollingStatistics',
     polingTeamForm: 'polingteamform',
     pollingTeamDashboard: '/pollingTeamDashboard',
+    startPollingPage: 'startPollingPage',
     onlineUserDashboard: '/onlineuserdashboard',
 };
