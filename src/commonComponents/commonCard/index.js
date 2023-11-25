@@ -2,6 +2,7 @@ import {Card} from 'antd';
 import styled from 'styled-components';
 
 export const StyledCard = styled(Card)`
+  cursor: ${(props) => (props.isClickAble ? 'pointer' : 'default')};
   width: ${(props) => (props.width ? props.width : '378px')};
   height: ${(props) => (props.height ? props.height : 'auto')};
   border-radius: ${(props) =>
@@ -19,6 +20,10 @@ export const StyledCard = styled(Card)`
     props.BoxShadow ? props.BoxShadow : '0px 0px 15px 0px rgba(0, 0, 0, 0.1)'};
   padding: ${(props) => (props.padding ? props.padding : '17px 20px')};
   border: ${(props) => (props.border ? props.border : 'auto')};
+  &:hover {
+    box-shadow: ${(props) =>
+    props.cardHoverShadow ? props.cardHoverShadow : ''};;
+  }
   .ant-card-head {
     padding: ${(props) => (props.headPadding ? props.headPadding : '')};
     justify-content: flex-start;
@@ -47,7 +52,7 @@ export const StyledCard = styled(Card)`
     color: ${(props) => (props.color ? props.color : '#000000')};
     padding: 5px;
     text-align: ${(props) =>
-      props.alingBodyText ? props.alingBodyText : 'center'};
+      props.alignBodyText ? props.alignBodyText : 'center'};
     font-size: ${(props) => (props.fontSize ? props.fontSize : '')};
     font-weight: ${(props) => (props.fontWeight ? props.fontWeight : '')};
     font-family: ${(props) =>

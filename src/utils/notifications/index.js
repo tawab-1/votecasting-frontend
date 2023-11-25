@@ -34,7 +34,11 @@ const notification = {
       key: 'success',
       duration: 2,
       closeIcon: false,
-      icon: `<img style="width: 90px; margin-left: -29px; margin-top: -21px;" src="${success}"></img>`,
+      icon: (<img 
+      src={success}
+      style={{width: '86px', marginLeft: '-21px', marginTop: '0px'}}
+      alt='Error Message'
+      />)
     });
   },
 
@@ -46,7 +50,11 @@ const notification = {
       description: message,
       duration: 2,
       closeIcon: false,
-      icon: `<img style="width: 90px; margin-left: -29px; margin-top: -21px;" src="${info}"></img>`,
+      icon: (<img 
+        src={info}
+        style={{width: '86px', marginLeft: '-21px', marginTop: '0px'}}
+        alt='Info Message'
+        />),
     });
   },
 

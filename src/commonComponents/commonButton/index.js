@@ -65,7 +65,7 @@ const StyledCustomButton = styled(Button)`
   min-height: 40px;
 
   &:hover {
-    border-color: white !important;
+    border-color: ${props => props.backgroundcolor === '#1f5a32' ? '#1f5a32' : props.backgroundColor === 'white' || '#fff' || '#ffffff' ? '#ffffff' : ''} !important;
     background-color: ${(props) =>
       props.backgroundcolor === '#1f5a32'
         ? 'white'
@@ -87,6 +87,6 @@ const StyledCustomButton = styled(Button)`
     font-weight: 500;
     font-size: 16px;
     font-family: Poppins !important;
-    color: ${(props) => (props.color ? props.color : '#1F5A32')};
+    color: ${(props) => (props.color === '#1F5A32' ? '#1F5A32' : props.color === 'white' || '#fff' || '#ffffff' ?  '#ffffff' : 'black' )};
   }
 `;

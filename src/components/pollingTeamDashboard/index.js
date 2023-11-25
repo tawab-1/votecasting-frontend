@@ -15,7 +15,7 @@ const PollingTeamDashboard = () => {
         <HeaderText>Welcome to election commission of Pakistan</HeaderText>
         <CustomButton 
         color='#1f5a32' 
-        backgroundColor='white' 
+        backgroundColor='#fff' 
         onClick={() => auth.logout()}
         title='Logout'
           />
