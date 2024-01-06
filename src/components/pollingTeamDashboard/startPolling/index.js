@@ -25,6 +25,9 @@ export const StartPollingPage = () => {
         candidateImage: null
     });
     const [loader, setLoader] = useState(false);
+
+
+
     const redirectBack = () => {
         setTimeout(() => {
             navigation(-1);
@@ -66,15 +69,15 @@ export const StartPollingPage = () => {
         }
     ]
     useEffect(() => {
-      setTimeout(() => {
-        setSelectPerson(false);
-      }, 5000);
+        setTimeout(() => {
+            setSelectPerson(false);
+        }, 5000);
     }, [])
-    
+
 
     return (
         <CommonContentWrapper>
-            {!selectPerson ? 
+            {!selectPerson ?
                 <Col span={24}>
                     <Row>
                         <Col span={24}>
@@ -122,11 +125,11 @@ export const StartPollingPage = () => {
                     </Row>
                 </Col> :
                 <CommonModel
-             open={true}
-             children={<CommonScanner/>}
-             displayOkButton={false}
-             displayCancelButton={false}
-         />}
+                    open={true}
+                    children={<CommonScanner />}
+                    displayOkButton={false}
+                    displayCancelButton={false}
+                />}
             <CommonModel
                 open={showCandidateModal}
                 children={

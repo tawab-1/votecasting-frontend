@@ -55,6 +55,7 @@ export const StyledCard = styled(Card)`
       props.alignBodyText ? props.alignBodyText : 'center'};
     font-size: ${(props) => (props.fontSize ? props.fontSize : '')};
     font-weight: ${(props) => (props.fontWeight ? props.fontWeight : '')};
+    width: ${(props) => (props.bodyWidth ? props.bodyWidth : '')};
     font-family: ${(props) =>
       props.fontFamily ? props.fontFamily : ''} !important;
     overflow-x: hidden;
