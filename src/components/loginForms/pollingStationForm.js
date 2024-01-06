@@ -4,7 +4,7 @@ import CommonLoginWrapper, {
   StyledFormItem,
   StyledIdIcon,
   StyledLockIcon,
-  StyledsigninButtonItem,
+  StyledSignInButtonItem,
 } from '../../commonComponents/commonLoginWrapper/commonLoginWrapper';
 import {Form} from 'antd';
 import {useNavigate} from 'react-router-dom';
@@ -64,7 +64,7 @@ function PollingTeamForm({setLoginForm}) {
           />
         </StyledFormItem>
         <StyledFormItem>
-          <StyledsigninButtonItem>
+          <StyledSignInButtonItem>
             <CustomButton
               className='w-100'
               title={'LOGIN'}
@@ -80,7 +80,7 @@ function PollingTeamForm({setLoginForm}) {
               color={'white'}
               backgroundColor={'#1f5a32'}
             />
-          </StyledsigninButtonItem>
+          </StyledSignInButtonItem>
         </StyledFormItem>
       </StyledForm>
     </CommonLoginWrapper>

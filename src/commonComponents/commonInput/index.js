@@ -3,6 +3,7 @@ import {Input} from 'antd';
 import {MdVisibility, MdVisibilityOff} from 'react-icons/md';
 import styled from 'styled-components';
 import {Label} from '../label';
+import { observer } from 'mobx-react-lite';
 
 const {TextArea} = Input;
 
@@ -68,7 +69,7 @@ const renderTextAreaSize = (size) => {
   }
 };
 
-const CommonInput = (props) => {
+const CommonInput = observer((props) => {
   const [inputSize] = useState(InputSize.Medium);
   const [label] = useState(null);
   const [autoSizeCheck] = useState(false);
@@ -156,9 +157,9 @@ const CommonInput = (props) => {
           onInput={props.onInput ? props.onInput : null}
           onBlur={props.onBlur ? props.onBlur : null}
           onFocus={props.onFocus ? props.onFocus : null}
-          type={'number'}
+          type='number'
           name={props.name}
-          value={props.value || props.defaultValue}
+          value={props.value}
           defaultValue={props.defaultValue}
           placeholder={props.placeholder}
           onChange={props.onChange ? props.onChange : null}
@@ -223,7 +224,7 @@ const CommonInput = (props) => {
       <span className={props.iconClasses}>{props.icon && props.icon}</span>
     </CustomInp>
   );
-};
+});
 export default CommonInput;
 
 const StyledNumberInput = styled(Input)`

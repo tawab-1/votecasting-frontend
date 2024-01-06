@@ -158,7 +158,7 @@ export const StyledImagesWrapper = styled.div`
   }
 `;
 
-export const StyledsigninButtonItem = styled.div`
+export const StyledSignInButtonItem = styled.div`
   
   .ant-btn {
     background-color: rgb(31, 90, 50);

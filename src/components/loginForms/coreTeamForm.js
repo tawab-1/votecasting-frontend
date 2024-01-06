@@ -4,7 +4,7 @@ import CommonLoginWrapper, {
   StyledFormItem,
   StyledLockIcon,
   StyledMailIcon,
-  StyledsigninButtonItem,
+  StyledSignInButtonItem,
 } from '../../commonComponents/commonLoginWrapper/commonLoginWrapper';
 import CommonInput from '../../commonComponents/commonInput';
 import CustomButton from '../../commonComponents/commonButton';
@@ -24,18 +24,17 @@ function CoreTeamForm({setLoginForm}) {
   const auth = useAuth();
 
   const onLogin = async (values) => {
-    const payload = {
-      email: values.email,
-      password: values.password,
-    };
-    const response = await addInfo(payload);
-    const userData = response?.data?.user;
-    if (response.status === 200 && userData.role === 'admin') {
-      auth.login(userData.username);
+    // const payload = {
+    //   email: values.email,
+    //   password: values.password,
+    // };
+    // const response = await addInfo(payload);
+    // console.log(response)
+    // const userData = response?.data?.user;
+    // if (response?.status === 200 && userData?.role === 'admin') {
+      auth.login('jsdhsjdhjsh');
       navigate(constRoute.coreTeam, {replace: true});
-    } else {
-      notification.error('Admin access required!');
-    }
+    // }
   };
   return (
     <CommonLoginWrapper>
@@ -76,7 +75,7 @@ function CoreTeamForm({setLoginForm}) {
             }}
           />
         </StyledFormItem>
-        <StyledsigninButtonItem>
+        <StyledSignInButtonItem>
           <CustomButton
             className='w-100'
             title='LOGIN'
@@ -92,7 +91,7 @@ function CoreTeamForm({setLoginForm}) {
             onClick={() => setLoginForm(null)}
             backgroundColor={'#1f5a32'}
           />
-        </StyledsigninButtonItem>
+        </StyledSignInButtonItem>
       </StyledForm>
     </CommonLoginWrapper>
   );

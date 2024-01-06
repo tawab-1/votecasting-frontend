@@ -5,14 +5,8 @@ import axios from 'axios';
 class UserLoginData {
     addUser = async (data) => {
         try {
-            const response = await this.axios.post(`${signUpUrl}`, {
-                username: data.username,
-                email: data.email,
-                identityCard: data.identityCard,
-                areaCode: data.areaCode,
-                role: data.role,
-            });
-            return response.data;
+            const response = await axios.post(`${signUpUrl}`, data);
+            return response;
         } catch (error) {
             const apiError = error;
             throw apiError;

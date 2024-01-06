@@ -230,7 +230,7 @@ function Users() {
         closable={false}
         onClose={onClose}
       >
-        <UserForm />
+        <UserForm onClose={onClose}/>
       </CommonDrawer>
     </>
   );

@@ -9,8 +9,9 @@ import {useState} from 'react';
 import CoreTeamForm from '../loginForms/coreTeamForm';
 import PollingTeamForm from '../loginForms/pollingStationForm';
 import OnlineUserForm from '../loginForms/onlineUserForm';
+import { observer } from 'mobx-react-lite';
 
-const WelcomePage = () => {
+const WelcomePage = observer(() => {
   const [loginForm, setLoginForm] = useState(null);
 
 
@@ -89,7 +90,7 @@ const WelcomePage = () => {
       )}
     </>
   );
-};
+});
 
 export default WelcomePage;
 

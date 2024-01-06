@@ -36,29 +36,36 @@ export const signinInfo = types
           username: info.email,
           password: info.password,
         });
-        const userData = res.data.user;
-        self.currentUser.push(userData);
-        return res;
+        if (res?.status === 200) {
+          const userData = res.data.user;
+          self.currentUser.push(userData);
+          return res;
+        }
       } catch (error) {
-        notification.error(error ? 'Invalid Email or Password' : '');
-        self.errorMessage = error.message;
+        if (error?.response?.status === 400) {
+          notification.error('Invalid Email or Password');
+          self.errorMessage = error.message;
+        } else if (error.response.status === 401) {
+          notification.error('Unauthorized');
+        } else if (error.response.status === 403) {
+          notification.error('Forbidden');
+        } else {
+          notification.error('Something went wrong!');
+        }
       } finally {
         self.loading = false;
       }
     });
-    const registerUser = flow(function* fetchData(userData) {
+    const registerUser = flow(function* (userData) {
       try {
         self.loading = true;
-        const res = yield UserLoginDataApi.addUser({
-          username: userData.username,
-          email: userData.email,
-          identityCard: userData.identityCard,
-          areaCode: userData.areaCode,
-          role: userData.role,
-        });
-        return res;
+        const res = yield UserLoginDataApi.addUser(userData);
+        if (res.status === 200) {
+          notification.success('User added successfully');
+          return res;
+        }
       } catch (error) {
-        notification.error(error ? 'User not added' : '');
+        notification.error(error ? `${error.response.data.message}` : '');
         // self.errorMessage = error.response.data.message;
       } finally {
         self.loading = false;

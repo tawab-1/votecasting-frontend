@@ -3,7 +3,7 @@ import {
   CommonHeader,
   HeaderText,
 } from '../../commonComponents/CommonHeader/CommonHeader';
-import {Col, Layout, Row} from 'antd';
+import {Layout} from 'antd';
 import { useAuth } from '../../utils/auth/auth';
 import { Outlet } from 'react-router-dom';
 

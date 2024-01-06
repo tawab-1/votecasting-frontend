@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import CommonLoginWrapper, {
   StyledForm,
   StyledFormItem,
   StyledIdIcon,
-  StyledsigninButtonItem,
+  StyledSignInButtonItem,
 } from '../../commonComponents/commonLoginWrapper/commonLoginWrapper';
 
 import {Form} from 'antd';
@@ -11,47 +11,33 @@ import {useNavigate} from 'react-router-dom';
 import CommonInput from '../../commonComponents/commonInput';
 import CustomButton from '../../commonComponents/commonButton';
 import {constRoute} from '../../utils/route';
+import { observer } from 'mobx-react-lite';
 
-function OnlineUserForm({setLoginForm}) {
+const OnlineUserForm = observer(({setLoginForm}) => {
   const navigate = useNavigate();
   const [form] = Form.useForm();
+  const [cnic, setCnic] = useState(null)
+
 
   const onLogin = (values) => {
-    console.log(values.cnic, '-------');
     navigate(constRoute.onlineUserDashboard);
   };
-  // const handleCnicChange = (e) => {
-  //   const value = e.target.value;
-  //   const formattedValue = value
-  //     .replace(/\D/g, '') // Remove any non-numeric characters
-  //     .substring(0, 5); // Limit the input to 5 characters
-  //   setCnic(formattedValue);
-  // };
+  const handleInputChange = (event) => {
+    const value = event.target.value;
+    // Allow only numbers
+    const numericInput = value.replace(/[^0-9]/g, '').replace(/(\d{5})(\d{7})(\d{1})/, '$1-$2-$3');
+  
+    // Insert dashes at the appropriate positions
+    // const formattedInput = numericInput;
+  
+    // Limit the length to 15 characters
+    const limitedInput = numericInput.substring(0, 15);
+  
+    setCnic(limitedInput);
+  };
 
-  // const handleKeyPress = (e) => {
-  //   const charCode = e.which ? e.which : e.keyCode;
-  //   const inputValue = e.target.value;
 
-  //   // Only allow numeric characters (0-9) and hyphen (-)
-  //   if (
-  //     charCode < 48 ||
-  //     charCode > 57 ||
-  //     (inputValue.length >= 15 && charCode !== 8 && charCode !== 46)
-  //   ) {
-  //     e.preventDefault();
-  //     return;
-  //   }
 
-  //   //Insert hyphen automatically
-  //   if (charCode !== 8 && charCode !== 46) {
-  //     const formattedValue = inputValue
-  //       .replace(/[^0-9-]/g, '')
-  //       .replace(/^(\d{5})-?(\d{0,7})-?(\d?)$/, (match, p1, p2, p3) => {
-  //         return p1 + '-' + p2 + (!p3 ? '-' + p3 : '');
-  //       });
-  //     e.target.value = formattedValue;
-  //   }
-  // };
   return (
     <CommonLoginWrapper>
       <StyledForm
@@ -77,14 +63,13 @@ function OnlineUserForm({setLoginForm}) {
             prefix={<StyledIdIcon />}
             inputType='cnic'
             placeholder='21593-3527936-8'
-            // onChange={handleCnicChange}
-            maxLength={15}
-            // value={cnic}
+            onChange={handleInputChange}
+            value={cnic}
             // onKeyPress={handleKeyPress}
           />
         </StyledFormItem>
         <StyledFormItem>
-          <StyledsigninButtonItem>
+          <StyledSignInButtonItem>
             <CustomButton
               className='w-100'
               title={'LOGIN'}
@@ -100,11 +85,11 @@ function OnlineUserForm({setLoginForm}) {
               color={'white'}
               backgroundColor={'#1f5a32'}
             />
-          </StyledsigninButtonItem>
+          </StyledSignInButtonItem>
         </StyledFormItem>
       </StyledForm>
     </CommonLoginWrapper>
   );
-}
+})
 
 export default OnlineUserForm;
